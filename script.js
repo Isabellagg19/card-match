@@ -117,10 +117,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // ganar
         if (cardsMatched.length === cardArray.length / 2) {
-            result.textContent = 'Congrats, you did it!';
+            const nextBtn = document.getElementById("next-level");
+            nextBtn.style.display = "block";
+            result.textContent= "";
+            
         }
     }
 
     createBoard();
+    document.getElementById("next-level").addEventListener("click", () => {
+    window.location.href = "house.html"; 
+    });
 });
 
