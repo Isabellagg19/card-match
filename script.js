@@ -108,10 +108,6 @@ function checkForMatch() {
         result.textContent = cardsMatched.length
         if (cardsMatched.length === cardArray.length/2) {
             result.textContent = 'congratulations!, you did it';
-            document.getElementById('wingif').style.display= 'block';
-            const audio = document.getElementById('win-sound');
-            audio.playbackRate = 1.7;
-            audio.play();
         }
 }
 
