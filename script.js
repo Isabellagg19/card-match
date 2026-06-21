@@ -49,6 +49,7 @@ const cardArray = [
             img: 'clip6.png'
         }
     ];
+    let isChecking = false;
     cardArray.sort(() => 0.5 - Math.random());
 
     const board = document.querySelector('.board')
@@ -71,17 +72,26 @@ const cardArray = [
 }
 
 function flipCard() {
-    var cardId= this.getAttribute('data-id');
+     if (isChecking) return; 
+
+    var cardId = this.getAttribute('data-id');
+
+    // evita hacer clic dos veces en la misma carta
+    if (cardsChosenId.includes(cardId)) return;
+
     cardsChosen.push(cardArray[cardId].name);
     cardsChosenId.push(cardId);
+
     this.setAttribute('src', cardArray[cardId].img);
+
     if (cardsChosen.length === 2) {
+        isChecking = true;
         setTimeout(checkForMatch, 500);
     }
 }
 
 function checkForMatch() {
-    const cards = document.querySelectorAll('img');
+    const cards = board.querySelectorAll('img');
     const optionOneId = cardsChosenId[0];
     const optionTwoId = cardsChosenId[1];
 
@@ -108,10 +118,6 @@ function checkForMatch() {
         result.textContent = cardsMatched.length
         if (cardsMatched.length === cardArray.length/2) {
             result.textContent = 'congratulations!, you did it';
-            document.getElementById('wingif').style.display= 'block';
-            const audio = document.getElementById('win-sound');
-            audio.playbackRate = 1.7;
-            audio.play();
         }
 }
 
