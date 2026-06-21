@@ -1,4 +1,4 @@
- 
+ document.addEventListener('DOMContentLoaded', () => {
 const cardArray = [
         {
             name: 'clip1',
@@ -121,3 +121,4 @@ function checkForMatch() {
 }
 
 createBoard();
+ });
