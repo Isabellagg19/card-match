@@ -125,8 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     createBoard();
-    document.getElementById("next-level").addEventListener("click", () => {
-    window.location.href = "house.html"; 
-    });
+    function nextLevel() {
+    window.location.href = "house.html";
+}
 });
 
