@@ -53,7 +53,7 @@ const cardArray = [
 
     const board = document.querySelector('.board')
     const result = document.querySelector('#score')
-    const placeholder = 'thinking.png';
+    const placeholder = 'question-clip.png';
     const blank = 'happy-clip.png';
 
     let cardsChosen = [];
