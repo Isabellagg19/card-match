@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. ARRAY DE CARTAS (cada imagen aparece dos veces)
     const cardArray = [
         { name: 'clip1', 
           img: 'clip1.png' },
@@ -66,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function flipCard() {
         const cardId = this.getAttribute('data-id');
 
-        // evitar doble click en la misma carta
         if (cardsChosenId.includes(cardId)) return;
 
         cardsChosen.push(cardArray[cardId].name);
@@ -80,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkForMatch() {
-        const cards = document.querySelectorAll('img');
+        const cards = document.querySelectorAll('.board img');
         const [id1, id2] = cardsChosenId;
 
         if (cardsChosen[0] === cardsChosen[1]) {
@@ -119,10 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // ganar
         if (cardsMatched.length === cardArray.length / 2) {
-            result.textContent = '¡Felicidades, lo lograste!';
+            result.textContent = 'Congrats, you did it!';
         }
     }
-    
+
     createBoard();
 });
 
