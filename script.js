@@ -81,7 +81,6 @@ function flipCard() {
 }
 
 function checkForMatch() {
-    function checkForMatch() {
     const cards = document.querySelectorAll('img');
     const optionOneId = cardsChosenId[0];
     const optionTwoId = cardsChosenId[1];
@@ -92,33 +91,30 @@ function checkForMatch() {
         cardsMatched.push(cardsChosen);
         cards[optionOneId].removeEventListener('click', flipCard);
         cards[optionTwoId].removeEventListener('click', flipCard);
-
         const audio = document.getElementById('right-sound');
-        audio.playbackRate = 1.7;
+        audio.playbackRate = 1.7; 
         audio.volume = 1;
         audio.play();
     } else {
-        cards[optionOneId].setAttribute('src', placeholder);
-        cards[optionTwoId].setAttribute('src', placeholder);
-
-        const audio = document.getElementById('mistake-sound');
-        audio.playbackRate = 1.7;
-        audio.volume = 1;
-        audio.play();
-    }
-
-    cardsChosen = [];
-    cardsChosenId = [];
-    result.textContent = cardsMatched.length;
-
-    if (cardsMatched.length === cardArray.length / 2) {
-        result.textContent = 'congratulations!, you did it';
-    }
-
-    lockBoard = false; 
+            cards[optionOneId].setAttribute('src',placeholder);
+            cards[optionTwoId].setAttribute('src', placeholder);
+            const audio = document.getElementById('mistake-sound');
+            audio.playbackRate = 1.7;
+            audio.volume = 1;
+            audio.play();
+        }
+        cardsChosen = [];
+        cardsChosenId = [];
+        result.textContent = cardsMatched.length
+        if (cardsMatched.length === cardArray.length/2) {
+            result.textContent = 'congratulations!, you did it';
+            document.getElementById('wingif').style.display= 'block';
+            const audio = document.getElementById('win-sound');
+            audio.playbackRate = 1.7;
+            audio.play();
+        }
 }
 
-}
 
 createBoard();
  });
